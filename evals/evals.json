@@ -1,0 +1,40 @@
+{
+  "skill_name": "travel-planner",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "我和朋友去京都三天，住在京都站附近。我们喜欢走路和拍照，寺庙挑经典的，不想逛商场；每天两餐，午餐便宜、晚餐吃当地特色但每人每天不超过 600 元。请给每天按时间排的路线，换公交就另起一行，顺路但值得的景点可以保留。",
+      "expected_output": "A date-appropriate three-day itinerary anchored at Kyoto Station, with walk-only arrows, separate transit rows, photo durations, meal choices that fit the budget, and no unrequested mall shopping. Volatile hours/fares and booking needs are sourced or labeled for verification.",
+      "assertions": [
+        {"name":"Three date-separated days","description":"The output clearly covers all three days."},
+        {"name":"Transit split from walking chains","description":"Arrows connect only walking segments; bus/subway transfers are separate rows with route/direction or explicit research caveat."},
+        {"name":"Lodging anchor and budget","description":"The plan starts/ends routes relative to Kyoto Station and provides two meals/day with an explicit daily total under CNY 600 or clearly flags estimates."},
+        {"name":"No shopping filler","description":"No mall/retail itinerary is added; worthwhile photo walks are retained."}
+      ],
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "帮我规划新加坡两天。我周五晚上到，周日 16:00 的航班，住在 Bugis，喜欢自然景观但也想看经典城市建筑。我不托运行李、会去柜台 check-in，预算中等。请把住宿、机场交通、门票、吃饭和费用都考虑进去。",
+      "expected_output": "A two-day plan that includes lodging and bag logistics, protects the Sunday flight, reasons about airport arrival from the route/check-in cutoff rather than using a generic buffer, balances nature with iconic architecture, and separates confirmed facts from current estimates and booking advice.",
+      "assertions": [
+        {"name":"Lodging and baggage are routed","description":"Bugis lodging, arrival night, and Sunday bag/check-out handling are explicitly included."},
+        {"name":"Airport deadline is reasoned about","description":"Separates leave-lodging, airport arrival, check-in cutoff, and gate target; does not prescribe a generic arrival buffer without explaining airline-specific uncertainty."},
+        {"name":"Nature and urban landmarks both included","description":"Both requested categories appear in the itinerary and are connected plausibly."},
+        {"name":"Budget and booking status are transparent","description":"Major transit, admission, and meal costs are included or marked as estimates; advance-booking items have a channel/status or are flagged for verification."}
+      ],
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "请帮我审一下这份巴黎三日行程是不是顺路，景点不要因为稍微绕路就删，尤其喜欢河边散步和拍照；纯购物可以删。标出不可能的时间、需要提前买票的项目和每天交通大概花费。",
+      "expected_output": "A route review that preserves worthwhile riverside/photo detours, removes only low-value shopping, identifies concrete timing/backtracking/closure risks, and gives actionable booking and transport-cost advice without claiming unverified schedules are confirmed.",
+      "assertions": [
+        {"name":"Requests missing itinerary","description":"Recognizes no Paris schedule was attached and asks for the actual itinerary or file instead of inventing route findings."},
+        {"name":"Preserves valuable detours","description":"Affirms that scenic riverside/photo detours should be evaluated for value rather than removed only for distance."},
+        {"name":"Explains review scope","description":"States concrete checks it will make for timing, backtracking, booking needs, and transport costs once the itinerary is supplied."}
+      ],
+      "files": []
+    }
+  ]
+}
